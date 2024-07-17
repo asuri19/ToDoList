@@ -1,0 +1,253 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .todo {
+        display: flex;
+        justify-content: center;
+        background: #d9635e;
+        height: 100vh;
+        padding: 50px 20px;
+    }
+
+    @media (max-width: 500px) {
+        .todo {
+            padding: 20px;
+        }
+    }
+
+    .todo__container {
+        background: #fff;
+        border-radius: 16px;
+        width: 90vh;
+        height: 89vh;
+        overflow: scroll;
+    }
+
+    @media (max-width: 500px) {
+        .todo__container {
+            height: 95vh;
+        }
+    }
+
+    .todo__wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .todo__form {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        row-gap: 10px;
+        padding: 20px 20px 10px;
+        background: #f7aeae;
+        border-radius: 16px;
+    }
+
+    .todo__form button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+
+    .todo__form__title {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .todo__form__input {
+        min-height: 45px;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid #9e9b98;
+        border-radius: 16px;
+    }
+
+    .todo__form__send-btn {
+        margin-bottom: 42px;
+        border: 1px solid #9e9b98;
+        padding: 5px;
+        border-radius: 5px;
+        color: inherit;
+    }
+
+    .todo__form__send-btn:active {
+        transform: scale(0.97);
+    }
+
+    .todo__form__cancel-btn {
+        border: 1px solid #9e9b98;
+        padding: 5px;
+        border-radius: 5px;
+        color: inherit;
+    }
+
+    .todo__form__cancel-btn:active {
+        transform: scale(0.97);
+    }
+
+    .todo__output {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        background: #fff;
+        z-index: 0;
+        padding: 10px 20px 0;
+    }
+
+    .todo__counter {
+        position: sticky;
+        bottom: 0;
+        padding: 0 20px;
+        background: #fff;
+    }
+
+    .todo__counter p {
+        font-size: 13px;
+        line-height: 13px;
+        padding: 15px 0 10px;
+        color: #9e9b98;
+    }
+
+    .todo__clear {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    .todo__clear-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        font-family: inherit;
+        font-size: inherit;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 16px;
+        padding: 5px;
+        border: 1px solid #9e9b98;
+    }
+
+    .todo__clear-btn:active {
+        transform: scale(0.97);
+    }
+
+    .none {
+        display: none !important;
+    }
+
+    .task {
+        position: relative;
+        padding: 5px;
+        border-radius: 5px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .task button {
+        background: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .task.dragging {
+        color: #d9635e;
+    }
+
+    .task.done {
+        opacity: 0.5;
+    }
+
+    .task.done .task__text {
+        text-decoration: line-through;
+    }
+
+    .task.pinned {
+        border-bottom: 2px solid #d9635e;
+        box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .task__title {
+        display: flex;
+        align-items: flex-end;
+        cursor: move;
+    }
+
+    .task__title p {
+        padding: 0 10px;
+    }
+
+    .task__time {
+        font-size: 13px;
+        line-height: 13px;
+        color: #9e9b98;
+    }
+
+    .task__text {
+        word-break: break-all;
+    }
+
+    .task__btns {
+        display: flex;
+        -moz-column-gap: 7px;
+        column-gap: 7px;
+        align-items: center;
+    }
+
+    .task__btns button {
+        padding-bottom: 2px;
+    }
+
+    .task__done {
+        padding-bottom: 2px;
+    }
+
+    .task__icon {
+        height: 15px;
+        width: 15px;
+    }
+
+    .task__counter {
+        padding: 10px 20px 0;
+    }
+</style>
+
+<section class="todo">
+    <div class="todo__container">
+        <div class="todo__wrapper">
+            <form class="todo__form">
+                <h4 class="todo__form__title">Список дел</h4>
+                <input type="text" class="todo__form__input">
+                <button class="todo__form__send-btn" type="submit">Добавить</button>
+                <button class="todo__form__cancel-btn none" type="button">Отмена</button>
+            </form>
+            <div class="todo__output">
+
+            </div>
+        </div>
+
+        <div class="todo__counter">
+            <p>Всего задач: 0</p>
+            <div class="todo__clear">
+                <button class="todo__clear-btn" type="button">Очистить список</button>
+            </div>
+        </div>
+    </div>
+</section>

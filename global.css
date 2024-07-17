@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  color: white;
+}
+body,
+html {
+  font-family: 'YS Text', sans-serif;
+  background-color: #fff;
+  -ms-overflow-style: none;
+  /* IE и Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  min-height: 100vh;
+  font-size: 10px;
+  display: block;
+  position: relative;
+}
+body ::-webkit-scrollbar,
+html ::-webkit-scrollbar {
+  display: none;
+}
+.page {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26px;
+}
